@@ -1,4 +1,4 @@
-pipeline{
+pipeline{  
     agent any
   
     environment {
@@ -27,5 +27,7 @@ pipeline{
           always{
             emailext body: "Correo de prueba Jenkins", subject: "Prueba", to: '$Lista'
 
+      }
     }
+  }
 }
