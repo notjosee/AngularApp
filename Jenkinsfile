@@ -11,7 +11,7 @@ pipeline{
             }
         }
 
-        stage('Compilacion del APP'){
+        stage('Compilacion del App'){
             steps{
                 sh 'npm run build'
             }
