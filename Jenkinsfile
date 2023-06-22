@@ -2,7 +2,7 @@ pipeline{
     agent any
   
     environment {
-        Lista = 'josecursoci@gmail.com'
+        lista = 'josecursoci@gmail.com'
     }
     stages{
         stage('Instalar Dependencias'){
@@ -22,12 +22,11 @@ pipeline{
                 sh 'ls -la'
             }
         }
-
+    }
         post{
           always{
             emailext body: "Correo de prueba Jenkins", subject: "Prueba", to: '$Lista'
 
       }
     }
-  }
 }
