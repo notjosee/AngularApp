@@ -28,10 +28,10 @@ pipeline{
     }
         post{
           success {
-             emailext body: "${CUERPO_CORREO} proceso exitoso", subject: "${TITULO_CORREO}", to: "${lista}" 
+             emailext body: "${cuerpo-correo} proceso exitoso", subject: "${titulo-correo}", to: "${lista}" 
           }
           failure {
-          emailext body: "${CUERPO_CORREO2} hay errores que revisar", subject: "${TITULO_CORREO}", to: "${lista}" 
+          emailext body: "${cuerpo-correo2} hay errores que revisar", subject: "${titulo-correo}", to: "${lista}" 
           }
 
       }
