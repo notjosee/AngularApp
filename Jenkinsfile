@@ -25,6 +25,14 @@ pipeline{
     }
         post{
           always{
+            echo 'siempre me voy a ejecutar...no matter what happens in the world :| '
+          }
+          success {
+             echo 'El pipeline se ejecutó correctamente'
+          }
+          failure {
+          echo 'El pipeline tuvo un fallo'
+          }
             emailext body: "Correo de prueba Jenkins", subject: "Prueba", to: "${lista}"
 
       }
