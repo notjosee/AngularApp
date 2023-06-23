@@ -3,6 +3,9 @@ pipeline{
   
     environment {
         lista = 'josecursoci@gmail.com'
+        cuerpo-correo = "El pipeline ${BUILD_URL} se creo sin problemas,"
+        cuerpo-correo2 = "El pipeline ${BUILD_URL} experimento problemas,"
+        titulo-correo = "Detalles pipeline ${BUILD_URL} STATUS"
     }
     stages{
         stage('Instalar Dependencias'){
@@ -24,14 +27,11 @@ pipeline{
         }
     }
         post{
-          always{
-            emailext body: "Correo de prueba Jenkins", subject: "Prueba", to: "${lista}"
-          }
           success {
-             echo 'El pipeline se ejecutó correctamente'
+             emailext body: "${CUERPO_CORREO} proceso exitoso", subject: "${TITULO_CORREO}", to: "${lista}" 
           }
           failure {
-          echo 'El pipeline tuvo un fallo'
+          emailext body: "${CUERPO_CORREO2} hay errores que revisar", subject: "${TITULO_CORREO}", to: "${lista}" 
           }
 
       }
