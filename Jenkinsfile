@@ -3,9 +3,6 @@ pipeline{
   
     environment {
         lista = 'josecursoci@gmail.com'
-        cuerpo-correo = "El pipeline ${BUILD_URL} se creo sin problemas,"
-        cuerpo-correo2 = "El pipeline ${BUILD_URL} experimento problemas,"
-        titulo-correo = "Detalles pipeline ${BUILD_URL} STATUS"
     }
     stages{
         stage('Instalar Dependencias'){
