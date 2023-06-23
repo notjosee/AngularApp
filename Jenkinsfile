@@ -23,12 +23,15 @@ pipeline{
             }
         }
     }
-        post{
+         post{
+          always{
+            emailext body: "Correo Jenkins", subject: "Prueba", to: "${lista}"
+          }
           success {
-             emailext body: "${cuerpo-correo} proceso exitoso", subject: "${titulo-correo}", to: "${lista}" 
+             echo 'El pipeline se ejecutó correctamente'
           }
           failure {
-          emailext body: "${cuerpo-correo2} hay errores que revisar", subject: "${titulo-correo}", to: "${lista}" 
+          echo 'El pipeline tuvo un fallo'
           }
 
       }
